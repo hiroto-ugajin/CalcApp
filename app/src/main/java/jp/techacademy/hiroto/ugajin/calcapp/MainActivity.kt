@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.textView1.text = "数値2"
 
         binding.button3.setOnClickListener(this)
-
+        binding.button4.setOnClickListener(this)
+        binding.button5.setOnClickListener(this)
+        binding.button6.setOnClickListener(this)
     }
     // 以下の関数を追加
     override fun onClick(v: View) {
@@ -45,6 +47,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.button3.setOnClickListener {
         var sum = binding.editText1.text.toString().toDouble() + binding.editText2.text.toString().toDouble()
+            binding.textView3.text = sum.toString()
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE", sum)
+            startActivity(intent)
+        }
+
+        binding.button4.setOnClickListener {
+            var sum = binding.editText1.text.toString().toDouble() - binding.editText2.text.toString().toDouble()
+            binding.textView3.text = sum.toString()
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE", sum)
+            startActivity(intent)
+        }
+
+        binding.button5.setOnClickListener {
+            var sum = binding.editText1.text.toString().toDouble() * binding.editText2.text.toString().toDouble()
+            binding.textView3.text = sum.toString()
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE", sum)
+            startActivity(intent)
+        }
+
+        binding.button6.setOnClickListener {
+            var sum = binding.editText1.text.toString().toDouble() / binding.editText2.text.toString().toDouble()
             binding.textView3.text = sum.toString()
             val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("VALUE", sum)
