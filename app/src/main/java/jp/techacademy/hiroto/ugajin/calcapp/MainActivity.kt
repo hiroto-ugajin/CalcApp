@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log // 追加
 import android.view.View // 追加
+import android.content.Intent
 import jp.techacademy.hiroto.ugajin.calcapp.databinding.ActivityMainBinding // 追加
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.button2.setOnClickListener(this)
         binding.textView1.text = "数値2"
 
+        binding.button3.setOnClickListener(this)
+
     }
     // 以下の関数を追加
     override fun onClick(v: View) {
@@ -43,6 +46,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.button3.setOnClickListener {
         var sum = binding.editText1.text.toString().toDouble() + binding.editText2.text.toString().toDouble()
             binding.textView3.text = sum.toString()
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE", sum)
+            startActivity(intent)
         }
     }
 }
