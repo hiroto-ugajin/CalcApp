@@ -31,11 +31,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.button1.setOnClickListener {
             // EditTextの文字列をTextViewに設定
             binding.textView1.text = binding.editText1.text.toString()
+            var a = binding.editText1.text.toString().toDouble()
         }
 
         binding.button2.setOnClickListener {
             // EditTextの文字列をTextViewに設定
             binding.textView2.text = binding.editText2.text.toString()
+            var b = binding.editText2.text.toString().toDouble()
+        }
+
+        binding.button3.setOnClickListener {
+        var sum = binding.editText1.text.toString().toDouble() + binding.editText2.text.toString().toDouble()
+            binding.textView3.text = sum.toString()
         }
     }
 }
