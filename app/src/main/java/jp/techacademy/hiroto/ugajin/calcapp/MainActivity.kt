@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.button1.text = "ボタン1"
         binding.button1.setOnClickListener(this)
-        binding.textView1.text = "数値1"
+        binding.textView1.text = "0.0"
 
         binding.button2.text = "ボタン2"
         binding.button2.setOnClickListener(this)
-        binding.textView1.text = "数値2"
+        binding.textView2.text = "0.0"
 
         binding.button3.setOnClickListener(this)
         binding.button4.setOnClickListener(this)
@@ -46,35 +46,63 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         binding.button3.setOnClickListener {
-        var sum = binding.editText1.text.toString().toDouble() + binding.editText2.text.toString().toDouble()
-            binding.textView3.text = sum.toString()
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE", sum)
-            startActivity(intent)
+            val a = binding.textView1.text.toString().toDouble()
+            val b = binding.textView2.text.toString().toDouble()
+            if (a != 0.0 && b != 0.0) {
+                var sum =
+                    binding.textView1.text.toString().toDouble() + binding.textView2.text.toString()
+                        .toDouble()
+                binding.textView3.text = sum.toString()
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("VALUE", sum)
+                startActivity(intent)
+            } else {
+                binding.textView3.text = "数値を入力して下さい"
+            }
         }
 
         binding.button4.setOnClickListener {
-            var sum = binding.editText1.text.toString().toDouble() - binding.editText2.text.toString().toDouble()
-            binding.textView3.text = sum.toString()
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE", sum)
-            startActivity(intent)
+            val a = binding.textView1.text.toString().toDouble()
+            val b = binding.textView2.text.toString().toDouble()
+            if (a != 0.0 && b != 0.0) {
+                var sum =
+                    binding.editText1.text.toString().toDouble() - binding.editText2.text.toString()
+                        .toDouble()
+                binding.textView3.text = sum.toString()
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("VALUE", sum)
+                startActivity(intent)
+            } else {
+                binding.textView3.text = "数値を入力して下さい"
+            }
         }
 
         binding.button5.setOnClickListener {
+            val a = binding.textView1.text.toString().toDouble()
+            val b = binding.textView2.text.toString().toDouble()
+            if (a != 0.0 && b != 0.0) {
             var sum = binding.editText1.text.toString().toDouble() * binding.editText2.text.toString().toDouble()
             binding.textView3.text = sum.toString()
             val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("VALUE", sum)
             startActivity(intent)
+            } else {
+                binding.textView3.text = "数値を入力して下さい"
+            }
         }
 
         binding.button6.setOnClickListener {
+            val a = binding.textView1.text.toString().toDouble()
+            val b = binding.textView2.text.toString().toDouble()
+            if (a != 0.0 && b != 0.0) {
             var sum = binding.editText1.text.toString().toDouble() / binding.editText2.text.toString().toDouble()
             binding.textView3.text = sum.toString()
             val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("VALUE", sum)
             startActivity(intent)
+            } else {
+                binding.textView3.text = "数値を入力して下さい"
+            }
         }
     }
 }
